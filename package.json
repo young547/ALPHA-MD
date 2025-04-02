@@ -53,6 +53,7 @@
     "child_process": "^1.0.2",
     "compile-run": "^2.3.4",
     "colors": "^1.4.0",
+    "crypto": "^1.0.1",
     "countries-and-timezones": "^3.6.0",
     "deobfuscator": "^2.4.5",
     "dotenv": "^16.3.1",
