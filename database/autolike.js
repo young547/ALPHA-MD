@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 const AutoLikeDB = config.DATABASE.define('autolike', {
     status: {
         type: DataTypes.ENUM('on', 'off'),
-        defaultValue: 'off',
+        defaultValue: 'on',
         allowNull: false
     },
     throttle_delay: {
