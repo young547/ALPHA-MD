@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 const AutoReadDB = config.DATABASE.define('autoread', {
     status: {
         type: DataTypes.ENUM('on', 'off'),
-        defaultValue: 'on',
+        defaultValue: 'off',
         allowNull: false
     }
 }, {
