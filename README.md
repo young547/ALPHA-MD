@@ -46,7 +46,7 @@
       <b>DEPLOY</b><br>
       Deploy the bot to your server or platform of choice using the button below.
       <br><br>
-      <a href="https://alpha-verify.vercel.app/">
+      <a href="https://dashboard.heroku.com/new?template=https://github.com/keithkeizzah/ALPHA-MD">
         <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku">
       </a>
     </td>
