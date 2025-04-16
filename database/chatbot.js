@@ -4,12 +4,12 @@ const { DataTypes } = require('sequelize');
 const ChatbotDB = config.DATABASE.define('chatbot', {
     status: {
         type: DataTypes.ENUM('on', 'off'),
-        defaultValue: 'on',
+        defaultValue: 'off',
         allowNull: false
     },
     inbox_status: {
         type: DataTypes.ENUM('on', 'off'),
-        defaultValue: 'on',
+        defaultValue: 'off',
         allowNull: false
     }
 }, {
