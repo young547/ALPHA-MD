@@ -14,7 +14,7 @@ const DATABASE_URL = process.env.DATABASE_URL === undefined
 
 const config = {
     session: process.env.SESSION_ID || 'keith',
-    PREFIXE: process.env.PREFIX || "",
+    PREFIXE: process.env.PREFIX || ".",
     OWNER_NAME: process.env.OWNER_NAME || "Keith",
     NUMERO_OWNER: process.env.NUMERO_OWNER || "254743995989",     
     AUTO_DOWNLOAD_STATUS: process.env.AUTO_DOWNLOAD_STATUS || 'non',    
