@@ -22,7 +22,7 @@
     <td align="center" width="50%">
       <h3>Pair Session</h3>
       <p>Link your session ID to start using</p>
-      <a href="https://alphapair.onrender.com/pair">
+      <a href="https://alphapair2.onrender.com/pair">
         <img src="https://img.shields.io/badge/Pair_Session-white?style=for-the-badge" alt="Pair Session">
       </a>
     </td>
