@@ -18,7 +18,7 @@ const AutoReactDB = config.DATABASE.define('autoreact', {
 
 async function initAutoReactDB() {
     try {
-        await AutoReactDB.sync({ alter: true });
+        await AutoReactDB.sync({ alter: false });
         console.log('AutoReact table ready');
     } catch (error) {
         console.error('Error initializing AutoReact table:', error);
@@ -35,7 +35,7 @@ async function getAutoReactSettings() {
         return settings;
     } catch (error) {
         console.error('Error getting AutoReact settings:', error);
-        return { status: 'on', emojis: ['❤', '💕', '😻'] }; // Default fallback
+        return { status: 'off', emojis: ['❤', '💕', '😻'] }; // Default fallback
     }
 }
 
