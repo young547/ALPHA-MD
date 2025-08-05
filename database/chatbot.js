@@ -35,7 +35,7 @@ async function getChatbotSettings() {
         return settings;
     } catch (error) {
         console.error('Error getting chatbot settings:', error);
-        return { status: 'on', inbox_status: 'on' };
+        return { status: 'off', inbox_status: 'off' };
     }
 }
 
