@@ -28,7 +28,7 @@ const config = {
     GURL: process.env.GURL || "https://github.com/Keithkeizzah", // replace with your url
     EVENTS: process.env.EVENTS || "yes",    
     BOT: process.env.BOT_NAME || 'ELIAKIM-MD', //replace with your bot name
-    MODE: process.env.PUBLIC_MODE || "yes",              
+    MODE: process.env.PUBLIC_MODE || "no",              
     TIMEZONE: process.env.TIMEZONE || "Africa/Nairobi", //replace with your timezone 
     DP: process.env.STARTING_BOT_MESSAGE || "yes",
     ADM: process.env.ANTI_DELETE_MESSAGE || 'yes',
