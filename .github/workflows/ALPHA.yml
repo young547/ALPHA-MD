@@ -1,7 +1,12 @@
-name: ELIAKIM-MD
+
+name: ELIAKIM-MD-LOCK-FIX
 
 on:
   workflow_dispatch:
+
+concurrency:
+  group: 'eliakim-md-bot'
+  cancel-in-progress: true
 
 jobs:
   loop-task:
@@ -19,17 +24,19 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Bot (loop & auto-restart if crash)
+      - name: Run Bot (loop & auto-restart with retries)
         run: |
-          echo "Running SUBZERO-MD in auto-restart mode..."
-          timeout 18000 bash -c 'while true; do npm start || echo "Bot crashed, restarting..."; sleep 2; done'
+          echo "Running ELIAKIM-MD with retry on failure to handle DB locks..."
+          for i in {1..5}
+          do
+            timeout 3600 npm start && break
+            echo "Bot crashed or locked, retrying in ((i * 10)) seconds..."
+            sleep((i * 10))
+          done
 
       - name: Re-Trigger Workflow
         if: always()
         run: |
           echo "Re-running workflow..."
           curl -X POST \
-            -H "Authorization: Bearer ${{ secrets.SUBZERO }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/${{ github.repository }}/actions/workflows/SUBZERO.yml/dispatches \
-            -d '{"ref":"main"}'
+            -H "Authorization: Bearer secrets.SUBZERO "             -H "Accept: application/vnd.github.v3+json"             https://api.github.com/repos/{{ github.repository }}/actions/workflows/Eliakim.yml/dispatches \
