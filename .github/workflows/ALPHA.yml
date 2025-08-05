@@ -40,3 +40,28 @@ jobs:
           echo "Re-running workflow..."
           curl -X POST \
             -H "Authorization: Bearer secrets.SUBZERO "             -H "Accept: application/vnd.github.v3+json"             https://api.github.com/repos/{{ github.repository }}/actions/workflows/Eliakim.yml/dispatches \
+-d '{"ref":"main"}'
+```
+
+---
+
+And in your bot code (JavaScript with Sequelize), update the initialization to include retry logic:
+
+```js
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: './database.sqlite',
+  retry: {
+    match: [/SQLITE_BUSY/],
+    max: 5,
+    backoffBase: 100,
+    backoffExponent: 1.5,
+  }
+});
+```
+
+---
+
+*If you want, I can help write a sample wrapper function for DB queries with retries or explain how to ensure only one bot instance runs at a time.* Just let me know!
